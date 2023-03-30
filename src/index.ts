@@ -70,7 +70,7 @@ export function h(
                 const useCapture = name !== finalName;
                 const eventName = finalName.toLowerCase().substring(2);
                 element.addEventListener(eventName, value as EventListenerOrEventListenerObject, useCapture);
-            } else if (name === "style" && typeof value !== "string") {
+            } else if (name === "style" && typeof value === "object") {
                 // Special handler for style with a value of type CSSStyleDeclaration
                 transferKnownProperties(value, element.style);
             } else if (name === "dangerouslySetInnerHTML") element.innerHTML = value as string;
